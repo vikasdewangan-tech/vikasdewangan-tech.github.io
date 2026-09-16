@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>For K.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Sora:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+<canvas id="stars-canvas"></canvas>
+
+<!-- ================= OPENING / LOCKED SCREEN ================= -->
+<div class="opening-screen" id="opening-screen">
+  <span class="top-line">A little something, made especially for you.</span>
+  <div class="center-block">
+    <p class="glow-text opening-heading">Hey Kunika.</p>
+    <p class="sub">Before you continue&hellip; just know that someone spent a little too much time making this.</p>
+    <button class="btn btn-pulse" id="open-surprise-btn">Open Your Surprise ✨</button>
+  </div>
+  <div class="bottom-space scroll-cue" aria-hidden="true"></div>
+</div>
+
+<!-- ================= MAIN CONTENT (locked until opened) ================= -->
+<main id="main-content" aria-hidden="true">
+
+  <!-- HERO -->
+  <section class="section" id="hero">
+    <div class="section-inner reveal">
+      <span class="eyebrow">To someone unexpectedly important</span>
+      <h1 class="glow-text">Happy Birthday, Kunika.</h1>
+      <p class="hero-line">Some people enter your life unexpectedly and become important before you even realize it.</p>
+      <p class="small-line">Today is your day. This little website is just my way of making it a little more special.</p>
+    </div>
+  </section>
+
+  <!-- OUR LITTLE STORY -->
+  <section class="section" id="story">
+    <div class="section-inner reveal">
+      <h2>How did two months become this much?</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-date">Yuva Sangam</span>
+          <p>Where this little story started.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Around two months ago</span>
+          <p>Didn't know someone I met here would become this important.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">19 June</span>
+          <p>Our first phone call.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Since then</span>
+          <p>Random conversations, little fights, sharing everything, and somehow always finding our way back to another conversation.</p>
+        </div>
+      </div>
+      <div class="story-closing">
+        <p>We haven't known each other for years. But sometimes, people don't need years to become meaningful. Sometimes, a few conversations are enough to make someone a part of your everyday life.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO GALLERY -->
+  <section class="section section-flush" id="gallery">
+    <div class="section-inner reveal">
+      <h2>A little gallery of you.</h2>
+      <p class="gallery-sub">Because apparently, one photo was never going to be enough.</p>
+    </div>
+
+    <div class="gallery-wrap" id="gallery-wrap">
+      <div class="gallery-track" id="gallery-track"><!-- slides injected by JS --></div>
+    </div>
+
+    <div class="gallery-controls">
+      <button class="gallery-arrow" id="prev-btn" aria-label="Previous photo">&#8592;</button>
+      <span class="gallery-counter" id="gallery-counter">01 / 20</span>
+      <button class="gallery-arrow" id="next-btn" aria-label="Next photo">&#8594;</button>
+    </div>
+
+    <div class="progress-track" id="progress-track" aria-hidden="true">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+
+    <button class="gallery-expand" id="expand-btn">View fullscreen</button>
+
+    <div class="filmstrip-title reveal">
+      <h3>Moments, not just photos.</h3>
+      <p>A tiny collection of moments that deserved a place here.</p>
+    </div>
+    <div class="filmstrip" id="filmstrip"><!-- thumbnails injected by JS --></div>
+  </section>
+
+  <!-- PERSONAL LETTER -->
+  <section class="section" id="letter">
+    <div class="section-inner reveal">
+      <h2>A little something I wanted to say&hellip;</h2>
+      <div class="letter-card">
+        <p>Kunika,</p>
+        <p>It's honestly a little funny how we met through Yuva Sangam, and now, just a couple of months later, you have become someone I genuinely look forward to talking to.</p>
+        <p>From our first phone call on 19 June to all the random conversations after that, so many little moments have quietly become memories.</p>
+        <p>We fight sometimes. We annoy each other sometimes. Sometimes we probably both think, "Okay, I am definitely not talking first." 😭</p>
+        <p>And then somehow&hellip; we talk again.</p>
+        <p>I think that's one of the nicest things about our friendship.</p>
+        <p>I can share things with you without having to overthink every word. Random thoughts, serious things, nonsense, frustrations, happy moments&mdash;somehow, you have become one of those people with whom I can just be myself.</p>
+        <p>And honestly, that is something I really appreciate.</p>
+        <p>You are genuinely a very special person, Kunika.</p>
+        <p>Not because everything is always perfect, but because even the imperfect, random, slightly chaotic parts of our friendship make it real.</p>
+        <p>I am really glad our paths crossed.</p>
+        <span class="letter-sign">&mdash; me</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TWO MODES -->
+  <section class="section" id="modes">
+    <div class="section-inner reveal">
+      <h2>An academically unexplained friendship pattern.</h2>
+      <div class="modes-card">
+        <span class="mode-label" id="mode-label">MODE 1</span>
+        <div class="mode-text-wrap">
+          <p class="mode-text" id="mode-1-text">We are having a perfectly normal conversation.</p>
+          <p class="mode-text hidden" id="mode-2-text">Five minutes later: argument + nonsense + laughing + talking again. 😭</p>
+        </div>
+      </div>
+      <button class="btn btn-ghost switch-btn" id="switch-mode-btn">Switch modes</button>
+    </div>
+  </section>
+
+  <!-- WHAT MAKES THIS SPECIAL -->
+  <section class="section" id="special">
+    <div class="section-inner reveal">
+      <h2>Things that make this friendship special.</h2>
+      <div class="cards-grid">
+        <div class="info-card"><h3>Random conversations</h3><p>Somehow, even the most unnecessary conversations become memorable.</p></div>
+        <div class="info-card"><h3>Little fights</h3><p>Because apparently peace was never the main objective of this friendship.</p></div>
+        <div class="info-card"><h3>Sharing everything</h3><p>Important things, useless updates, and everything in between.</p></div>
+        <div class="info-card"><h3>Talking again</h3><p>Even after getting annoyed, we somehow find our way back.</p></div>
+        <div class="info-card"><h3>Being yourself</h3><p>One of the nicest things is not having to pretend.</p></div>
+        <div class="info-card"><h3>Unexpectedly special</h3><p>Didn't expect someone I met recently to become this important.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THINGS TO NEVER FORGET -->
+  <section class="section" id="never-forget">
+    <div class="section-inner reveal">
+      <h2>Things I hope you never forget.</h2>
+      <div class="glow-list">
+        <div class="glow-item">You have a genuinely good heart.</div>
+        <div class="glow-item">You deserve good things.</div>
+        <div class="glow-item">Your presence matters more than you realize.</div>
+        <div class="glow-item">You are stronger than you sometimes think.</div>
+        <div class="glow-item">You make ordinary conversations feel special.</div>
+        <div class="glow-item">You deserve people who are kind to you.</div>
+        <div class="glow-item">You are someone worth keeping in life.</div>
+      </div>
+      <p class="playful-note">And yes, this list is not open for arguments.</p>
+    </div>
+  </section>
+
+  <!-- OPEN WHEN -->
+  <section class="section" id="open-when">
+    <div class="section-inner reveal">
+      <h2>Open when&hellip;</h2>
+      <div class="envelope-grid">
+        <button class="envelope" data-msg="Good. Stay that way. Protect that smile.">
+          <span class="envelope-icon">🤍</span>
+          <span class="envelope-title">You're happy</span>
+          <p class="envelope-msg"></p>
+        </button>
+        <button class="envelope" data-msg="One bad day does not define your whole life. Be a little kinder to yourself.">
+          <span class="envelope-icon">🤍</span>
+          <span class="envelope-title">You're having a bad day</span>
+          <p class="envelope-msg"></p>
+        </button>
+        <button class="envelope" data-msg="You matter to more people than you probably realize.">
+          <span class="envelope-icon">🤍</span>
+          <span class="envelope-title">You think nobody cares</span>
+          <p class="envelope-msg"></p>
+        </button>
+        <button class="envelope" data-msg="Unfortunately, I am still available for random nonsense and unnecessary arguments. 😭">
+          <span class="envelope-icon">🤍</span>
+          <span class="envelope-title">You miss our conversations</span>
+          <p class="envelope-msg"></p>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WISH FROM AFAR -->
+  <section class="section" id="afar">
+    <div class="section-inner reveal">
+      <h2>I wish I could be there.</h2>
+      <p>I may not be with you in person on your birthday, but I hope this little surprise makes you feel celebrated.</p>
+      <p>If I could, I'd probably wish you in person, annoy you a little, make you laugh, and then remind you that you are officially getting older. 😭</p>
+      <p>But since I can't be there, I wanted to leave you something you could open, read, and hopefully smile at.</p>
+      <p>I hope this year brings you more reasons to smile, less reasons to overthink, people who genuinely care about you, opportunities that make you proud, and moments that make life feel really, really good.</p>
+    </div>
+  </section>
+
+  <!-- WISH LIST -->
+  <section class="section" id="wishes">
+    <div class="section-inner reveal">
+      <h2>A few things I wish for you.</h2>
+      <div class="wish-list">
+        <div class="wish-item"><span class="wish-mark">&hearts;</span><p>I hope life is gentle with you.</p></div>
+        <div class="wish-item"><span class="wish-mark">&hearts;</span><p>I hope you find reasons to smile even on difficult days.</p></div>
+        <div class="wish-item"><span class="wish-mark">&hearts;</span><p>I hope you become proud of the person you are becoming.</p></div>
+        <div class="wish-item"><span class="wish-mark">&hearts;</span><p>I hope you get opportunities you never expected.</p></div>
+        <div class="wish-item"><span class="wish-mark">&hearts;</span><p>I hope you never settle for less than the kindness you deserve.</p></div>
+        <div class="wish-item"><span class="wish-mark">&hearts;</span><p>And I hope this year gives you more happiness than you know what to do with.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL ENVELOPE -->
+  <section class="section" id="final-envelope">
+    <div class="section-inner reveal">
+      <h2>One last thing, K&hellip;</h2>
+      <div class="env-container">
+        <button class="env-box" id="env-box" aria-label="Tap to open the final message">
+          <span class="env-back"></span>
+          <span class="env-flap"></span>
+          <span class="env-seal">✦</span>
+        </button>
+        <p class="env-tap-hint" id="env-hint">Tap the envelope to open it</p>
+      </div>
+      <div class="final-message" id="final-message">
+        <p>I didn't make this because I had to.</p>
+        <p>I made it because you are someone worth making something special for.</p>
+        <p>Thank you for being one of those unexpected people who made a short chapter of my life feel surprisingly meaningful.</p>
+        <p>Whatever happens, I hope life is kind to you. I hope you keep your smile. I hope you get everything you work for. And I hope you always remember that you are appreciated more than you probably realize.</p>
+        <p>Happy Birthday, Kunika.</p>
+        <p>Stay happy. Stay amazing. Stay a little annoying.</p>
+        <p>And yes&hellip; we are still going to fight sometimes. Obviously. 😭❤️</p>
+        <span class="final-sign">&mdash; me</span>
+      </div>
+    </div>
+  </section>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- FINAL SCREEN -->
+  <section class="section section-closing" id="closing">
+    <div class="section-inner reveal">
+      <h2 class="glow-text" id="closing-heading">Keep smiling, Kunika.</h2>
+      <p>Some people become special slowly. Somehow, you became special pretty quickly.</p>
+      <button class="btn" id="replay-btn">Replay the little surprise</button>
+      <p class="footer-note">Made with a little time, a lot of thought, and one very specific person in mind.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- Lightbox (always available, sits above everything) -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close fullscreen">&times;</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
